@@ -19,3 +19,5 @@ export class NavbarComponent implements OnInit {
     alert( " Logged Out!");
     } 
 }
+
+

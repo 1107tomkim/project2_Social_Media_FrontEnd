@@ -17,6 +17,8 @@ import { UsersignupComponent } from './component/usersignup/usersignup.component
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../models/user';
+import { Post } from '../models/post';
+import { PostsComponent } from '../component/posts/posts.component';
 
 
 @Injectable({
@@ -28,4 +30,12 @@ export class SocialMediaService {
     const savedUser = await firstValueFrom(observable);
     return savedUser;
   }
+
+ getPosts(){
+    return this.http.get<Post[]>(`https://jsonplaceholder.typicode.com/posts`);
+    // const savedPosts = await firstValueFrom(observable);
+    // return savedPosts;
+
+  }
+
 }
