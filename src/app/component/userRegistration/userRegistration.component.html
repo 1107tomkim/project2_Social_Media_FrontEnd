@@ -1,18 +1,22 @@
 
-
+<body>
 <p>User Registration</p>
-
-        <input type="text" placeholder="Enter username here" [(ngModel)] ="username">
-
-        <label for="password">Password</label>
-
-        <input type="text" placeholder="Enter password here" [(ngModel)] ="password">
-
-        <br>
-
-    <button (click)="registerUser()" class="btn btn-primary">Register</button>
-
+    <ul class="list-unstyled components">
+        <li>
+            <input type="text" placeholder="Enter username here" [(ngModel)] ="username">
+        </li>
+        <li>
+            <label for="password"></label>
+        </li>
+        <li>
+            <input type="text" placeholder="Enter password here" [(ngModel)] ="password">
+        </li>
+        <li>
+            <button (click)="registerUser()" class="btn btn-primary">Register</button>
+        </li>
+    </ul>
     <h4 *ngIf="savedId !==0">User was saved with id {{savedId}}</h4>
+</body>
 
 
 

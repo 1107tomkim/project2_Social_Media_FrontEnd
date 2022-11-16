@@ -1,1 +1,19 @@
-<p>posts works!</p>
+<h3>Posts Availible</h3>
+
+<h4 *ngIf="posts.length ===0">Loading Posts</h4>
+<table *ngIf="posts.length !== 0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody>       
+        <tr *ngFor="let p of posts">
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.body}}</td>
+        </tr>
+    </tbody>
+</table>

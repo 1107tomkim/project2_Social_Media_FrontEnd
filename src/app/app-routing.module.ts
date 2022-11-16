@@ -9,6 +9,7 @@ const routes: Routes = [
   {path:"login", component: UserloginComponent},
   {path:"create", component: UsersignupComponent},
   {path:"", component: HomepageComponent}
+  
 ];
 
 @NgModule({
