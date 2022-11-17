@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../models/user';
 import { Post } from '../models/post';
-import { PostsComponent } from '../component/posts/posts.component';
+import { FeedComponent } from '../component/feed/feed.component';
 
 
 @Injectable({
