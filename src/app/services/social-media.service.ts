@@ -32,7 +32,7 @@ export class SocialMediaService {
   }
 
  getPosts(){
-    return this.http.get<Post[]>(`https://jsonplaceholder.typicode.com/posts`);
+    return this.http.get<Post[]>(`http://localhost:8080/posts`);
     // const savedPosts = await firstValueFrom(observable);
     // return savedPosts;
 
