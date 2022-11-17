@@ -4,7 +4,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './component/userRegistration/userRegistration.component';
-import { PostsComponent } from './component/posts/posts.component';
+import { FeedComponent } from './component/feed/feed.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LogInComponent } from './component/log-in/log-in.component';
@@ -15,6 +15,7 @@ import { ContactinfoComponent } from './component/contactinfo/contactinfo.compon
 import { UserloginComponent } from './component/userlogin/userlogin.component';
 import { UsersignupComponent } from './component/usersignup/usersignup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PostComponent } from './component/post/post.component';
 
 
 
@@ -25,12 +26,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     LogInComponent,
     UserComponent,
-    PostsComponent,
+    FeedComponent,
     HomepageComponent,
     AboutComponent,
     ContactinfoComponent,
     UserloginComponent,
-    UsersignupComponent
+    UsersignupComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

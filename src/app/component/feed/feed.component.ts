@@ -4,11 +4,11 @@ import { SocialMediaService } from 'src/app/services/social-media.service';
 
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  selector: 'app-feed',
+  templateUrl: './feed.component.html',
+  styleUrls: ['./feed.component.css']
 })
-export class PostsComponent implements OnInit {
+export class FeedComponent implements OnInit {
   posts: Post[] = [];
  
 
