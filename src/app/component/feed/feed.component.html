@@ -1,5 +1,4 @@
-<h3>Posts Available</h3>
-
+<body>
 <h4 *ngIf="posts.length ===0">Loading Posts</h4>
 <div *ngIf="posts.length !== 0">
     <app-post *ngFor="let p of posts" [post]="p"></app-post>    
@@ -29,6 +28,7 @@
       </div>
     </div>
   </div>
+</body>
 
 <!--
 <table *ngIf="posts.length !== 0">

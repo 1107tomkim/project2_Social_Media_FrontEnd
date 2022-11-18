@@ -1,3 +1,7 @@
 div {
     overflow-y: auto;
 }
+
+body{
+    position: absolute;
+}
