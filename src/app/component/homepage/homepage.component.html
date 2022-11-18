@@ -1,8 +1,15 @@
 <body>
-<app-navbar></app-navbar>
-<app-feed></app-feed>
+    <div class="search-box">
+        <input class="search-txt" type="text" placeholder="Search for...">
+        <button class="search-btn" href="#">🔍︎</button>
+    </div>
 
-<app-about>About</app-about>
-<app-contactinfo>Contact Info</app-contactinfo>
-<div> Hello </div>
+    <div class="nav">
+        <app-navbar></app-navbar>
+    </div>
+
+    <div class="post-box">
+        <app-feed></app-feed> 
+    </div>
+
 </body>

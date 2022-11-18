@@ -16,6 +16,8 @@ import { UserloginComponent } from './component/userlogin/userlogin.component';
 import { UsersignupComponent } from './component/usersignup/usersignup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostComponent } from './component/post/post.component';
+import { CommentComponent } from './component/comment/comment.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -32,7 +34,8 @@ import { PostComponent } from './component/post/post.component';
     ContactinfoComponent,
     UserloginComponent,
     UsersignupComponent,
-    PostComponent
+    PostComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { PostComponent } from './component/post/post.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    FontAwesomeModule,
   
   ],
   providers: [],
