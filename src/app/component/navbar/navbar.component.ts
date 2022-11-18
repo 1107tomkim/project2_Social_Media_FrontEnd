@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { SocialMediaService } from 'src/app/services/social-media.service';
 import { UserComponent } from '../userRegistration/userRegistration.component';
 
+
+
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
 
   constructor(private userService: SocialMediaService) { }
 
