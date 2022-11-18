@@ -21,7 +21,13 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
   async registerUser(){
-    const user: User = {id:0, username:this.username, password:this.password};
+    const user: User = {id:0, 
+        username:this.username, 
+        password:this.password, 
+        firstname: '',
+        lastname: '',
+        email: '',
+        isLoggedIn: false};
     alert(user.username + user.password);
     const savedUser: User = await this.userService.registerUser(user);
     this.savedId = savedUser.id;

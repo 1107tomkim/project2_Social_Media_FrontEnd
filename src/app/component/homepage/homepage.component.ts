@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SocialMediaService } from 'src/app/services/social-media.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService : SocialMediaService, private router : Router) { }
 
   ngOnInit(): void {
+      if (this.userService.user.isLoggedIn) {
+        this.router.navigate(['/home']);
+      }
+
   }
 
 }

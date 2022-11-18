@@ -3,6 +3,8 @@ import { User } from 'src/app/models/user';
 import { SocialMediaService } from 'src/app/services/social-media.service';
 import { Router } from '@angular/router';
 import { UserComponent } from '../userRegistration/userRegistration.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-log-in',
@@ -10,23 +12,42 @@ import { UserComponent } from '../userRegistration/userRegistration.component';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
+  formgrp: FormGroup;
 
-  username : string = "";
-  password : string = "";
 
-  constructor(private userService: SocialMediaService, private router: Router) { }
+  constructor(private userService: SocialMediaService, 
+            private router: Router,
+            private formBuilder : FormBuilder) {
+              this.formgrp = this.formBuilder.group({username: '',password: ''});
+             }
 
   ngOnInit(): void {
+      this.formgrp = this.formBuilder.group(
+      {
+        username: '',
+        password: ''
+      }
+    );
   }
 
   async logIn(){
-    if (this.username.length < 1 || this.password.length < 1) {
-      alert("Fields can not be empty");
-    }else{
-      const user: User = {id:0, username:this.username, password:this.password};
-      this.userService.logIn(user);
-      alert(this.username + " Logged In!");
-    }
+    let jsonString : string = JSON.stringify(this.formgrp.getRawValue());
+    alert(jsonString);
+   
+      const user = this.formgrp.getRawValue();
+      // const user: User = {id:0, 
+      //   username:this.username, 
+      //   password:this.password, 
+      //   firstname: '',
+      //   lastname: '',
+      //   email: '',
+      //   isLoggedIn: false};
+
+      let loggedUser: Promise<User> = this.userService.logIn(user);
+      this.router.navigate(['/home']);
+      
+      
+  
   }
   
 }
