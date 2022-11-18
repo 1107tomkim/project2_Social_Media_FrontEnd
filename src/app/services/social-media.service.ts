@@ -11,28 +11,44 @@ import { FeedComponent } from '../component/feed/feed.component';
 })
 export class SocialMediaService {
 
+  baseURL: string = "http://localhost:8080";
+  user: User = {id:0, 
+        username:'', 
+        password:'', 
+        firstname: '',
+        lastname: '',
+        email: '',
+        isLoggedIn: false};
+
   constructor(private http: HttpClient) { }
 
   async registerUser(user: User):Promise<User>{
-    const observable = this.http.post<User>("http://localhost:8080/create", user);
+    const observable = this.http.post<User>(this.baseURL + "/create", user);
     const savedUser = await firstValueFrom(observable);
     return savedUser;
   }
 
   async logIn(user: User):Promise<User>{
-    const observable = this.http.post<User>("http://localhost:8080/login", user);
+    const observable = this.http.post<User>(this.baseURL + "/login", user, {withCredentials: true});
     const savedUser = await firstValueFrom(observable);
+    this.user = savedUser;
     return savedUser;
   }
 
   async logOut(user: User):Promise<User>{
-    const observable = this.http.post<User>("http://localhost:8080/logout", user);
+    const observable = this.http.post<User>(this.baseURL + "/logout", user, {withCredentials: true});
     const savedUser = await firstValueFrom(observable);
     return savedUser;
   }
 
+  async getUser(user : User):Promise<User>{
+      const observable =   this.http.get<User>(this.baseURL + '/api/user', {withCredentials: true});
+      const savedUser = await firstValueFrom(observable);
+      return savedUser;
+  }
+
  getPosts(){
-    return this.http.get<Post[]>(`http://localhost:8080/posts`);
+    return this.http.get<Post[]>(this.baseURL + `/api/posts`, {withCredentials: true});
     // const savedPosts = await firstValueFrom(observable);
     // return savedPosts;
 

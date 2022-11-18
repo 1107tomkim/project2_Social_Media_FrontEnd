@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   }
   async logOut(){      
     // const user: User = {id:0, username:this.username, password:this.password};
-    // this.userService.logOut(user);
+    this.userService.logOut(this.userService.user);
     alert( " Logged Out!");
     } 
 }

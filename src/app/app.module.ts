@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './component/userRegistration/userRegistration.component';
 import { FeedComponent } from './component/feed/feed.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LogInComponent } from './component/log-in/log-in.component';
 import { Router } from '@angular/router';
@@ -38,6 +38,7 @@ import { PostComponent } from './component/post/post.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
   
