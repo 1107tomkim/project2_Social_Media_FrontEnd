@@ -1,0 +1,35 @@
+<h4>Create Post</h4>
+
+<form>
+    <div data-for="message">
+        <label for="textForPost" class="form-label">Enter Post Text</label>
+        <textarea [(ngModel)]="postText" type="text" class="form-control" id="textForPost" name="posttext" rows="7"
+            data-form-field="PostText" id="message-form1-4t"></textarea>
+    </div>
+
+    <label for="fileUpload" class="form-label">Upload Post Image</label>
+    <!-- <input class="form-control form-control-sm" id="formFileSm" type="file" /> -->
+    <!-- <input type="file" class="file-upload" id="fileUpload" onchange="console.log(event.target.files)"> -->
+
+
+    <input type="file" class="file-input" id="fileUpload" accept="image/jpeg" (change)="onFileSelected($event)"
+        #fileUpload> <!-- this is hidden by CSS-->
+    <div class="file-upload">
+
+
+        {{fileName || "No file uploaded yet."}}
+
+
+        <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+            <span class="material-icons">attach_file</span>
+        </button>
+
+
+    </div>
+
+    <hr>
+    <span class="input-group-btn">
+        <button (click)="createPost()" type="submit" class="btn btn-primary btn-form display-4">CREATE POST</button>
+    </span>
+
+</form>
