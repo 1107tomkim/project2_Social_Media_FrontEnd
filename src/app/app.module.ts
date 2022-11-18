@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PostComponent } from './component/post/post.component';
 import { CommentComponent } from './component/comment/comment.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CreatePostComponent } from './component/create-post/create-post.component';
 
 
 
@@ -35,7 +36,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     UserloginComponent,
     UsersignupComponent,
     PostComponent,
-    CommentComponent
+    CommentComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
