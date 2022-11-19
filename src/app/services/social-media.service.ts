@@ -36,7 +36,7 @@ export class SocialMediaService {
   }
 
   async logOut(user: User):Promise<User>{
-    const observable = this.http.post<User>(this.baseURL + "/logout", user, {withCredentials: true});
+    const observable = this.http.post<User>(this.baseURL + "/logout", {withCredentials: true});
     const savedUser = await firstValueFrom(observable);
     return savedUser;
   }
