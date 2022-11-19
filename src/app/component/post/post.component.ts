@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
   constructor() {
     this.post = {
     postText: "",
-    username:"",
+    username: "",
     postId : 0,
     userId : 0,
     liked : 0,
