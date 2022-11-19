@@ -28,7 +28,7 @@ export class SocialMediaService {
     return savedUser;
   }
 
-  async logIn(user: User):Promise<User>{
+  async logIn(user: any):Promise<User>{
     const observable = this.http.post<User>(this.baseURL + "/login", user, {withCredentials: true});
     const savedUser = await firstValueFrom(observable);
     this.user = savedUser;
@@ -48,7 +48,7 @@ export class SocialMediaService {
   }
 
  getPosts(){
-    return this.http.get<Post[]>(this.baseURL + `/api/posts`, {withCredentials: true});
+    return this.http.get<Post[]>(this.baseURL + '/api/posts', {withCredentials: true});
     // const savedPosts = await firstValueFrom(observable);
     // return savedPosts;
 

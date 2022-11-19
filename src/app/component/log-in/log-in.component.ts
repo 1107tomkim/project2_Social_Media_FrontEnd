@@ -34,9 +34,7 @@ export class LogInComponent implements OnInit {
     let jsonString : string = JSON.stringify(this.formgrp.getRawValue());
     alert(jsonString);
    
-      const user : User = this.formgrp.getRawValue();
-      console.log(user);
-      
+      const user = this.formgrp.getRawValue();
       // const user: User = {id:0, 
       //   username:this.username, 
       //   password:this.password, 
@@ -46,9 +44,7 @@ export class LogInComponent implements OnInit {
       //   isLoggedIn: false};
 
       let loggedUser: Promise<User> = this.userService.logIn(user);
-      console.log(loggedUser);
-      
-      // this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
       
       
   

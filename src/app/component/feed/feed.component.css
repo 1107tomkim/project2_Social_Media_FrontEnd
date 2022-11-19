@@ -1,13 +1,16 @@
-div {
-    overflow-y: auto;
-}
 
 body{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 20%;
+    left: 10%;
     margin-top: -50px;
     margin-left: -50px;
-    width: 50%;
-    height: 100%;
+    width: 88%;
+    height: 80%;
+    overflow-y: scroll;
+    border-radius: 20px;
+}
+
+body::-webkit-scrollbar{
+    display: none;
 }
