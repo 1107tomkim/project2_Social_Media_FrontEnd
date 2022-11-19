@@ -1,5 +1,27 @@
 
 <body>
+    <div class="center">
+      <h1 data-text="Register">User Registration</h1>
+      <form [formGroup]="formgrp" (submit)="registerUser()">
+        <div class="txt_field">
+          <input formControlName="username" type="text">
+          <span></span>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input formControlName="password"  type="password">
+          <span></span>
+          <label>Password</label>
+        </div>
+        <a class="Button" (click)="registerUser()">Register</a>
+        <div class="signup_link">
+          Already a member? <a href="/login">Login</a>
+        </div>
+      </form>
+    </div>
+  </body>
+<!--
+<body>
 <p>User Registration</p>
     <ul class="list-unstyled components">
         <li>
@@ -18,9 +40,7 @@
     <h4 *ngIf="savedId !==0">User was saved with id {{savedId}}</h4>
 </body>
 
-
-
-  
+-->
 
    
 
