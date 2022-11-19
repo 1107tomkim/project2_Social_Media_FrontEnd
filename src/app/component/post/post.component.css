@@ -1,0 +1,17 @@
+
+
+.username {
+    
+    color: magenta;
+    text-shadow: 3px 3px rgb(33, 4, 46);
+    font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.post {
+    background: slateblue;
+    border-width: 6%;
+    border-color: black;
+    border-style: solid;    
+}
