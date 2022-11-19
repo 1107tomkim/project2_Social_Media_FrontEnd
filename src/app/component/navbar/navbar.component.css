@@ -31,11 +31,11 @@ main{
 }
 
 .navbar{
-    width: 5rem;
+    width: 4rem;
     height: 100vh;
     position: fixed;
     background-color: #23232e;
-    transition: width 600ms ease;
+    transition: width 400ms ease;
 }
 
 .navbar-nav{
@@ -67,7 +67,6 @@ main{
 
 .link-text {
     display: none;
-    margin-left: 1rem;
 }
 
 .nav-link i{
@@ -82,3 +81,9 @@ main{
 .navbar:hover .link-text{
     display: block;
 }
+
+.nav-link:hover{
+    color: aliceblue;
+    transition: ease-in-out;
+}
+
