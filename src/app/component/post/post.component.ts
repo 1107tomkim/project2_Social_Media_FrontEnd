@@ -11,6 +11,9 @@ export class PostComponent implements OnInit {
   @Input() post : Post;
   @ViewChild('post_image')imageElementId!: ElementRef;
 
+  postAge : any;
+
+
   constructor() {
     this.post = {
     postText: "",
@@ -35,7 +38,10 @@ export class PostComponent implements OnInit {
   }
 
    ngAfterViewInit() {
-    
+      this.postAge = Date.now() - this.post.date;
+
+
+
       let base64String : string = this.arrayBufferToBase64(this.post.postPhoto);
       let imageElement = this.imageElementId.nativeElement as HTMLImageElement;
     //  imageElement.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Crocodile_de_Morelet.jpeg/1200px-Crocodile_de_Morelet.jpeg";
