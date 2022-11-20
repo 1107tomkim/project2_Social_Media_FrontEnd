@@ -21,6 +21,7 @@ export class PostComponent implements OnInit, AfterViewInit {
   is_creating_comment = false;
 
 
+
   constructor(private postService : SocialMediaService) {
 
     this.post = {
@@ -73,7 +74,8 @@ export class PostComponent implements OnInit, AfterViewInit {
     this.comments = newcomments;
   //  alert(JSON.stringify(newcomments));
   }
- clickCreateComment() {
+
+  toggleCreate() {
     this.is_creating_comment = !this.is_creating_comment;
   }
 
