@@ -1,0 +1,13 @@
+.file-input {
+    display: none;
+}
+
+.spacer-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+form {
+    border-radius: 20px;
+
+}

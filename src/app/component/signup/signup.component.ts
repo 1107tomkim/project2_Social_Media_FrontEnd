@@ -5,11 +5,11 @@ import { SocialMediaService } from 'src/app/services/social-media.service';
 import { Form, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './userRegistration.component.html',
-  styleUrls: ['./userRegistration.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class UserComponent implements OnInit {
+export class SignupComponent implements OnInit {
   formgrp: FormGroup;
 
   constructor(private userService: SocialMediaService, private router: Router, private formBuilder : FormBuilder)
@@ -21,8 +21,13 @@ export class UserComponent implements OnInit {
   savedId : number = 0;
 
   
-  ngOnInit(): void {this.formgrp = this.formBuilder.group({username: '',password: ''})
+  ngOnInit(): void {
+    this.formgrp = this.formBuilder.group({
+      username: '',
+      password: ''}
+    )
   }
+
   async registerUser(){
     const user = this.formgrp.getRawValue();
     alert("Account with the Username " + user.username + " has been successfully created!");

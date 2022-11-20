@@ -1,20 +1,28 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { parseHostBindings } from '@angular/compiler';
+import { AfterViewInit, asNativeElements, Component, ContentChild, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { firstValueFrom, Timestamp, timestamp } from 'rxjs';
+import { CommentData } from 'src/app/models/comment';
 import { Post } from 'src/app/models/post';
+import { SocialMediaService } from 'src/app/services/social-media.service';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css']
 })
-export class PostComponent implements OnInit {
+export class PostComponent implements OnInit, AfterViewInit {
   
   @Input() post : Post;
-  @ViewChild('post_image')imageElementId!: ElementRef;
-
-  postAge : any;
+  @ViewChild('post_image')imageElementRef!: ElementRef;
 
 
-  constructor() {
+  public comments: CommentData[] = [];
+
+  constructor(private postService : SocialMediaService) {
+
+    
+
     this.post = {
     postText: "",
     username: "",
@@ -26,30 +34,30 @@ export class PostComponent implements OnInit {
     postPhoto : null
     }
 
+    this.comments = [];
     
    }
 
-  ngOnInit(): void {
-   // let postImage : HTMLImageElement = this.imageElementId.nativeElement as HTMLImageElement;
-     
-  //   this.imageHtml =`<img src="data:image/jpeg;base64, ${this.base64String}" height=100 width=100>`;
- //   let postImage : HTMLImageElement = document.getElementById("post_image") as HTMLImageElement;
+  ngOnInit(): void {  
+    this.getComments();
+  }
+
+  
+  getComments(){
+    this.postService.getComments(this.post.postId).subscribe((comments)=>{
+      this.comments = comments;
+    });
+
 
   }
 
    ngAfterViewInit() {
-      this.postAge = Date.now() - this.post.date;
 
-
-
+    // get the image and set its src value to a base64 conversion (of the image bytea from DB)
+      let imageElement = this.imageElementRef.nativeElement as HTMLImageElement;
       let base64String : string = this.arrayBufferToBase64(this.post.postPhoto);
-      let imageElement = this.imageElementId.nativeElement as HTMLImageElement;
-    //  imageElement.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Crocodile_de_Morelet.jpeg/1200px-Crocodile_de_Morelet.jpeg";
-      
-
       imageElement.src = "data:image/jpeg;base64," + base64String;
-      //innerHTML = `<img src="data:image/jpeg;base64, ${this.base64String}" height=100 width=100>`;
-
+            
     }
 
   

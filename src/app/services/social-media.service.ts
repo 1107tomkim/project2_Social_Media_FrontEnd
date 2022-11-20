@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { User } from '../models/user';
 import { Post } from '../models/post';
 import { FeedComponent } from '../component/feed/feed.component';
+import { CommentData } from '../models/comment';
 
 
 @Injectable({
@@ -28,7 +29,7 @@ export class SocialMediaService {
     return savedUser;
   }
 
-  async logIn(user: any):Promise<User>{
+  async logIn(user: User):Promise<User>{
     const observable = this.http.post<User>(this.baseURL + "/login", user, {withCredentials: true});
     const savedUser = await firstValueFrom(observable);
     this.user = savedUser;
@@ -36,13 +37,13 @@ export class SocialMediaService {
   }
 
   async logOut(user: User):Promise<User>{
-    const observable = this.http.post<User>(this.baseURL + "/logout", {withCredentials: true});
+    const observable = this.http.get<User>(this.baseURL + "/api/logout", {withCredentials: true});
     const savedUser = await firstValueFrom(observable);
     return savedUser;
   }
 
   async getUser():Promise<User>{
-      const observable =   this.http.get<User>(this.baseURL + '/api/user', {withCredentials: true});
+      const observable =  this.http.get<User>(this.baseURL + '/api/user', {withCredentials: true});
       const savedUser = await firstValueFrom(observable);
       return savedUser;
   }
@@ -54,7 +55,13 @@ export class SocialMediaService {
 
   }
 
-  
+  getComments(post_id : number){
+    return this.http.get<CommentData[]>(this.baseURL + '/api/comments/' + post_id, {withCredentials: true});
+   //  const savedPosts = await firstValueFrom(observable);
+   //  return savedPosts;
+
+  }
+
   async createPost(post : any): Promise<any> {
     const observable =  this.http.post(this.baseURL + '/api/post', post, {withCredentials: true});
     const ret = await firstValueFrom(observable);

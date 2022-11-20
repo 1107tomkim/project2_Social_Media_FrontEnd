@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SocialMediaService } from 'src/app/services/social-media.service';
-import { UserComponent } from '../userRegistration/userRegistration.component';
 
 
 
@@ -13,7 +13,7 @@ import { UserComponent } from '../userRegistration/userRegistration.component';
 export class NavbarComponent implements OnInit {
 
 
-  constructor(private userService: SocialMediaService) { }
+  constructor(private userService: SocialMediaService, private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
     // const user: User = {id:0, username:this.username, password:this.password};
     this.userService.logOut(this.userService.user);
     alert( " Logged Out!");
+    this.router.navigate(['/login']);
     } 
 }
 

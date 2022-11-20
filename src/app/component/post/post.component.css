@@ -1,7 +1,5 @@
-
-
 .username {
-    
+
     color: magenta;
     text-shadow: 3px 3px rgb(33, 4, 46);
     font-family: 'Courier New', Courier, monospace;
@@ -13,5 +11,11 @@
     background: slateblue;
     border-width: 6%;
     border-color: black;
-    border-style: solid;    
+    border-style: solid;
+    color: black;
+}
+
+.spacer-line {
+    display: flex;
+    justify-content: space-between;
 }

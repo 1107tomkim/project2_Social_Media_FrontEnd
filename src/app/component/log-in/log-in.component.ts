@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { SocialMediaService } from 'src/app/services/social-media.service';
 import { Router } from '@angular/router';
-import { UserComponent } from '../userRegistration/userRegistration.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 

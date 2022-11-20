@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Comments } from 'src/app/models/comment';
+import { Component, Input, OnInit } from '@angular/core';
+import { CommentData } from 'src/app/models/comment';
 
 @Component({
   selector: 'app-comment',
@@ -8,11 +8,13 @@ import { Comments } from 'src/app/models/comment';
 })
 export class CommentComponent implements OnInit {
 
+  @Input() comment : CommentData;
+
   constructor() { 
     this.comment = {
     comment_id : 0,
     userId : 1,
-    text : "OOOO I GOT COVID!",
+    text : "~~~~~",
     date : null,
     parentId : 1,
     postId : 3,
@@ -20,7 +22,6 @@ export class CommentComponent implements OnInit {
     disliked : 0
      } }
 
-  comment : Comments;
 
   ngOnInit(): void {
   }

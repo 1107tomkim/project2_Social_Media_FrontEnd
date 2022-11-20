@@ -1,27 +1,19 @@
-
 <section class="post">
     <h1 class="username">@{{post.username}}</h1>
 
-<div class="row mb-2 bg-dark ">
-    <div class="col-md-12">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col-auto d-none d-lg-block">
-                <img #post_image src="" height=200 width=250>
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-success">Design</strong>
-                <h3 class="mb-0">Post title</h3>
-                <div class="mb-1 text-muted">{{postAge}}</div>
-                <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional
-                    content.</p>
-                <a href="#" class="stretched-link">Continue reading</a>
-            </div>
+    <div class="col p-4 d-md-flex flex-column position-static">
+        <img #post_image src="">
+        <h3 class="mb-0">{{post.postText}}</h3>
 
-        </div>
+        <p class="spacer-line">
+            {{post.date}}
+            <a href="https://www.google.com/">link</a>
+            Comments: {{comments.length}}
+        </p>
     </div>
-</div>
 
 
-    <app-comment></app-comment>
-    <h6>...</h6>
+    <div #commentbox *ngIf="comments.length !== 0">
+        <app-comment *ngFor="let c of comments" [comment]="c"></app-comment>
+    </div>
 </section>

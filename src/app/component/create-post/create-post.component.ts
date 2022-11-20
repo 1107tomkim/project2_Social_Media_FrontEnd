@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/models/post';
 import { User } from 'src/app/models/user';
 import { SocialMediaService } from 'src/app/services/social-media.service';
@@ -68,6 +69,9 @@ export class CreatePostComponent implements OnInit {
 
 
         if (file) {
+
+          this.fileName = file.name;
+
           let r = new FileReader();
           r.onload = () => {
             let str = r.result + '';

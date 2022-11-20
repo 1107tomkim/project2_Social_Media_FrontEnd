@@ -1,6 +1,5 @@
-import { Timestamp } from "rxjs";
 
-export interface Comments {
+export interface CommentData {
     comment_id : number,
     userId : number,
     text : string,
