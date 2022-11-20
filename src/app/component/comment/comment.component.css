@@ -6,5 +6,10 @@
 .children {
     color: pink;
     position: relative;
-    margin-left: 5%;
+    left:3%;
+}
+.children::before {
+    font-weight: bold;
+    color: navy;
+    content: "---> ";
 }

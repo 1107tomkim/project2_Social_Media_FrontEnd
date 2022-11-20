@@ -13,8 +13,14 @@
     </div>
 
 <br>
-<button *ngIf="!is_creating_comment" (click)="clickCreateComment()">+Comment</button>
-<app-create-comment *ngIf="is_creating_comment"></app-create-comment>
+
+<button *ngIf="!is_creating_comment" (click)="toggleCreate()">+</button>
+<div *ngIf="is_creating_comment">
+    <app-create-comment></app-create-comment>
+    <button (click)="toggleCreate()">X</button>
+</div>
+
+
 
 
 

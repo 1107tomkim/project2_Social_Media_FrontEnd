@@ -6,9 +6,13 @@
     {{comment.text}}
 </p>
 
-<button *ngIf="!is_creating" (click)="clickCreate()">+</button>
-<app-create-comment *ngIf="is_creating"></app-create-comment>
-
+<button *ngIf="!is_creating" (click)="toggleCreate()">+</button>
+<div *ngIf="is_creating">
+    <app-create-comment id="create-comment">
+    </app-create-comment>
+    <button (click)="toggleCreate()">X</button>
+</div>
+<br><hr>
 
 <app-comment class="children" *ngFor="let c of comment.comments" [comment]="c"></app-comment>
 

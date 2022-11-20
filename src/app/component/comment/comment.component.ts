@@ -9,6 +9,7 @@ import { SocialMediaService } from 'src/app/services/social-media.service';
 })
 export class CommentComponent implements OnInit {
 
+
   @Input() comment : CommentData;
 
   @Input() child_comments: any;
@@ -37,7 +38,7 @@ export class CommentComponent implements OnInit {
     });
   }
 
-  clickCreate() {
+  toggleCreate() {
     this.is_creating = !this.is_creating;
   }
 
