@@ -48,6 +48,12 @@ export class SocialMediaService {
       return savedUser;
   }
 
+  async getUserById(user_id : number):Promise<User>{
+      const observable =  this.http.get<User>(this.baseURL + '/api/user/' + user_id, {withCredentials: true});
+      const savedUser = await firstValueFrom(observable);
+      return savedUser;
+  }
+
  getPosts(){
     return this.http.get<Post[]>(this.baseURL + '/api/posts', {withCredentials: true});
     // const savedPosts = await firstValueFrom(observable);
@@ -67,5 +73,12 @@ export class SocialMediaService {
     const ret = await firstValueFrom(observable);
     return ret;
   }
+
+  async createComment(comment : any): Promise<any> {
+    const observable =  this.http.post(this.baseURL + '/api/comment', comment, {withCredentials: true});
+    const ret = await firstValueFrom(observable);
+    return ret;
+  }
+
 
 }

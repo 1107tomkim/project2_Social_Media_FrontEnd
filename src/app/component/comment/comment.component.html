@@ -1,7 +1,28 @@
 <p class="spacer-line" background="darkpurple">
-    @{{comment.userId}}
+    @{{username}}
     {{comment.date}}
 </p>
 <p class="spacer-line" background="lightgray">
     {{comment.text}}
 </p>
+
+<button *ngIf="!is_creating" (click)="clickCreate()">+</button>
+<app-create-comment *ngIf="is_creating"></app-create-comment>
+
+
+<app-comment class="children" *ngFor="let c of comment.comments" [comment]="c"></app-comment>
+
+
+<!--
+
+<ul *ngFor="let c of comment.comments">
+    <li>THERES A CHILD HERE</li>
+</ul>
+
+
+
+<ul *ngFor="let list of child_comments | keyvalue; let i=index">
+    <li> {{list.key}} <app-comment [child_comments]="list.value"></app-comment>
+    </li>
+</ul>
+-->

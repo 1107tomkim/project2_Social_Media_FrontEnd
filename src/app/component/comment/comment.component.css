@@ -2,3 +2,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.children {
+    color: pink;
+    position: relative;
+    margin-left: 5%;
+}

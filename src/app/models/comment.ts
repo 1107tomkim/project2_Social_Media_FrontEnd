@@ -7,5 +7,6 @@ export interface CommentData {
     parentId : number,
     postId : number,
     liked : number,
-    disliked : number
+    disliked : number,
+    comments?: Array<CommentData>
 }
