@@ -18,6 +18,7 @@ import { CommentComponent } from './component/comment/comment.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreatePostComponent } from './component/create-post/create-post.component';
 import { SignupComponent } from './component/signup/signup.component';
+import { CreateCommentComponent } from './component/comment/create-comment/create-comment.component';
 
 
 
@@ -34,7 +35,8 @@ import { SignupComponent } from './component/signup/signup.component';
     SignupComponent,
     PostComponent,
     CommentComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    CreateCommentComponent
   ],
   imports: [
     BrowserModule,

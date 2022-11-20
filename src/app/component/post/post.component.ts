@@ -15,23 +15,23 @@ export class PostComponent implements OnInit, AfterViewInit {
   
   @Input() post : Post;
   @ViewChild('post_image')imageElementRef!: ElementRef;
-
-
   public comments: CommentData[] = [];
+  public child_comments: CommentData[] = [];
+  comment_id = 0;
+  is_creating_comment = false;
+
 
   constructor(private postService : SocialMediaService) {
 
-    
-
     this.post = {
-    postText: "",
-    username: "",
-    postId : 0,
-    userId : 0,
-    liked : 0,
-    disliked : 0,
-    date : null,
-    postPhoto : null
+      postText: "",
+      username: "",
+      postId : 0,
+      userId : 0,
+      liked : 0,
+      disliked : 0,
+      date : null,
+      postPhoto : null
     }
 
     this.comments = [];
@@ -45,20 +45,46 @@ export class PostComponent implements OnInit, AfterViewInit {
   
   getComments(){
     this.postService.getComments(this.post.postId).subscribe((comments)=>{
-      this.comments = comments;
-    });
-
-
+      this.setComments(comments);
+    });    
   }
 
-   ngAfterViewInit() {
+  setComments(comments : CommentData[]) {
+    comments.sort(function(a, b){return a.date - b.date});
+      
+    for (let i in comments) {
+      for (let j in comments) {
 
-    // get the image and set its src value to a base64 conversion (of the image bytea from DB)
-      let imageElement = this.imageElementRef.nativeElement as HTMLImageElement;
-      let base64String : string = this.arrayBufferToBase64(this.post.postPhoto);
-      imageElement.src = "data:image/jpeg;base64," + base64String;
-            
+        if (comments[j].parentId == comments[i].comment_id) {
+          if (comments[i].comments === undefined)
+              comments[i].comments = [];
+           comments[i].comments?.push(comments[j]);
+          // alert(JSON.stringify(comments[i].comments));
+
+        }
+      }
     }
+    let newcomments : CommentData[] = [];
+    for (let i in comments) {
+      if (comments[i].parentId === 0)
+        newcomments.push(comments[i]);
+    }
+
+    this.comments = newcomments;
+  //  alert(JSON.stringify(newcomments));
+  }
+ clickCreateComment() {
+    this.is_creating_comment = !this.is_creating_comment;
+  }
+
+  ngAfterViewInit() {
+
+  // get the image and set its src value to a base64 conversion (of the image bytea from DB)
+    let imageElement = this.imageElementRef.nativeElement as HTMLImageElement;
+    let base64String : string = this.arrayBufferToBase64(this.post.postPhoto);
+    imageElement.src = "data:image/jpeg;base64," + base64String;
+          
+  }
 
   
   public arrayBufferToBase64( buffer : any[] ): string {

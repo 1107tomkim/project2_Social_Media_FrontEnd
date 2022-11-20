@@ -31,7 +31,7 @@ export class LogInComponent implements OnInit {
 
   async logIn(){
     let jsonString : string = JSON.stringify(this.formgrp.getRawValue());
-    alert(jsonString);
+   // alert(jsonString);
    
       const user = this.formgrp.getRawValue();
       // const user: User = {id:0, 

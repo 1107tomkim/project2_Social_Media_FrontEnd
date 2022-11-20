@@ -12,6 +12,11 @@
         </p>
     </div>
 
+<br>
+<button *ngIf="!is_creating_comment" (click)="clickCreateComment()">+Comment</button>
+<app-create-comment *ngIf="is_creating_comment"></app-create-comment>
+
+
 
     <div #commentbox *ngIf="comments.length !== 0">
         <app-comment *ngFor="let c of comments" [comment]="c"></app-comment>
