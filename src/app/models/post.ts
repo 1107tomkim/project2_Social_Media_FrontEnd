@@ -5,8 +5,8 @@ export interface Post {
     username: string,
     postId : number,
     userId : number,
-    liked : number,
-    disliked : number,
+    liked_by : any,
+    disliked_by : any,
     date : any,
     postPhoto : any
 

@@ -80,5 +80,8 @@ export class SocialMediaService {
     return ret;
   }
 
+  async likePost(post_id : number): Promise<any> {
+    return this.http.get("http://localhost:8080/api/post/like/1", {withCredentials: true});
+  }
 
 }

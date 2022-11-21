@@ -19,6 +19,9 @@ export class PostComponent implements OnInit, AfterViewInit {
   public child_comments: CommentData[] = [];
   comment_id = 0;
   is_creating_comment = false;
+  liked = false;
+  disliked = false;
+
 
 
 
@@ -29,8 +32,8 @@ export class PostComponent implements OnInit, AfterViewInit {
       username: "",
       postId : 0,
       userId : 0,
-      liked : 0,
-      disliked : 0,
+      liked_by : null,
+      disliked_by : null,
       date : null,
       postPhoto : null
     }
@@ -98,4 +101,18 @@ export class PostComponent implements OnInit, AfterViewInit {
       }
       return window.btoa( binary );
   }
+
+  toggleLiked(){
+    console.log(this.liked);
+    this.liked = !this.liked;
+    console.log(this.liked);
+
+    const xyz = this.postService.likePost(this.post.postId);
+    console.log(xyz);
+
+  };
+
+  toggleDisliked(){
+    this.disliked = !this.disliked
+  };
 }
