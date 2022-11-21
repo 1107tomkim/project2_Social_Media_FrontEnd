@@ -1,3 +1,4 @@
+<body>
 <p class="spacer-line" background="darkpurple">
     @{{username}}
     {{comment.date}}
@@ -6,7 +7,9 @@
     {{comment.text}}
 </p>
 
-<button *ngIf="!is_creating" (click)="toggleCreate()">+</button>
+<button class="create comment" *ngIf="!is_creating" (click)="toggleCreate()"><i class="bi bi-chat-dots"></i></button>
+
+
 <div *ngIf="is_creating">
     <app-create-comment id="create-comment">
     </app-create-comment>
@@ -16,7 +19,7 @@
 
 <app-comment class="children" *ngFor="let c of comment.comments" [comment]="c"></app-comment>
 
-
+</body>
 <!--
 
 <ul *ngFor="let c of comment.comments">

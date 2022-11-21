@@ -1,6 +1,10 @@
-.username {
+body {
+    margin: 20px 20px 20px 20px;
+}
 
-    color: magenta;
+
+.username {
+    color: #b6b6b6;
     text-shadow: 3px 3px rgb(33, 4, 46);
     font-family: 'Courier New', Courier, monospace;
     font-style: oblique;
@@ -8,14 +12,33 @@
 }
 
 .post {
-    background: slateblue;
-    border-width: 6%;
+    border-radius: 15px;
     border-color: black;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    border-color: #71b7e6;
+    border-width: 3px;
     border-style: solid;
-    color: black;
 }
 
 .spacer-line {
     display: flex;
     justify-content: space-between;
 }
+
+
+.comment-create{
+    color: white;
+    width: auto;
+    height: 30px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.cc{
+    padding-bottom: 5px;
+    padding-left: 3px;
+}
+

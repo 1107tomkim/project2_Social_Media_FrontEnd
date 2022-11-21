@@ -1,30 +1,40 @@
-<section class="post">
-    <h1 class="username">@{{post.username}}</h1>
+<body>
+    <section class="post">
+        <h1 class="username">@{{post.username}}</h1>
 
-    <div class="col p-4 d-md-flex flex-column position-static">
-        <img #post_image src="">
-        <h3 class="mb-0">{{post.postText}}</h3>
+        <div class="">
+            <img #post_image src="">
+            <h3 class="mb-0">{{post.postText}}</h3>
 
-        <p class="spacer-line">
-            {{post.date}}
-            <a href="https://www.google.com/">link</a>
-            Comments: {{comments.length}}
-        </p>
+            <p class="spacer-line">
+                {{post.date}}
+                <br>
+<!--                <a href="https://www.google.com/">link</a> -->
+                Comments: {{comments.length}}
+            </p>
+        </div>
+
+<div class="cc">
+    <button class="comment-create" *ngIf="!is_creating_comment" (click)="toggleCreate()"><i class="bi bi-chat-dots"></i></button>  
+
+    <div *ngIf="is_creating_comment">
+        <app-create-comment></app-create-comment>
+        <button (click)="toggleCreate()">X</button>    
     </div>
-
-<br>
-
-<button *ngIf="!is_creating_comment" (click)="toggleCreate()">+</button>
-<div *ngIf="is_creating_comment">
-    <app-create-comment></app-create-comment>
-    <button (click)="toggleCreate()">X</button>
 </div>
 
 
+<button class="like" *ngIf="!liked; else likedBlock" (click)="toggleLiked()"><i class="bi bi-hand-thumbs-up"></i></button>
+<ng-template #likedBlock><i class="bi bi-hand-thumbs-up-fill"></i></ng-template>
 
 
+<button class="dislike" *ngIf="!disliked;  else dislikedBlock" (click)="toggleDisliked()"><i class="bi bi-hand-thumbs-down"></i></button>
+<ng-template #dislikedBlock><i class="bi bi-hand-thumbs-down-fill"></i></ng-template>
+  
 
-    <div #commentbox *ngIf="comments.length !== 0">
-        <app-comment *ngFor="let c of comments" [comment]="c"></app-comment>
-    </div>
-</section>
+
+        <div class="cbox" *ngIf="comments.length !== 0">
+            <app-comment *ngFor="let c of comments" [comment]="c"></app-comment>
+        </div>
+    </section>
+</body>

@@ -13,3 +13,20 @@
     color: navy;
     content: "---> ";
 }
+
+
+.comment-create{
+    color: white;
+    width: auto;
+    height: 30px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    padding: 10px 10px 10px 10px;
+    margin: 30;
+}

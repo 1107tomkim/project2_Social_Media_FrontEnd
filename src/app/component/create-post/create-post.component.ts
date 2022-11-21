@@ -50,8 +50,8 @@ export class CreatePostComponent implements OnInit {
         postId : 0,
         userId : 0,
         username: currentUser.username,
-        liked : 0,
-        disliked : 0,
+        liked_by : null,
+        disliked_by : null,
         date: null,
         postPhoto: this.byteArray
       }
