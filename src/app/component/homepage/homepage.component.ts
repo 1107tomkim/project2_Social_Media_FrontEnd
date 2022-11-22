@@ -12,9 +12,9 @@ export class HomepageComponent implements OnInit {
   constructor(private userService : SocialMediaService, private router : Router) { }
 
   ngOnInit(): void {
-      if (this.userService.user.isLoggedIn) {
-        this.router.navigate(['/home']);
-      }
+      // if (this.userService.user.isLoggedIn) {
+      //   this.router.navigate(['/home']);
+      // }
 
   }
 

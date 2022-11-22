@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { CommentData } from 'src/app/models/comment';
 import { SocialMediaService } from 'src/app/services/social-media.service';
 
@@ -41,5 +41,6 @@ export class CommentComponent implements OnInit {
   toggleCreate() {
     this.is_creating = !this.is_creating;
   }
+
 
 }
