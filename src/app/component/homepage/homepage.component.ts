@@ -19,5 +19,17 @@ export class HomepageComponent implements OnInit {
 
   }
 
+  searchButton() {
+    let search_string : string = 'rob';
+    
+    this.userService.searchUsers(search_string).then(users=> {
+      alert(users);
+    });
+
+
+
+
+
+  }
 
 }

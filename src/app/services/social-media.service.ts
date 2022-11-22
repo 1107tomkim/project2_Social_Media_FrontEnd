@@ -42,6 +42,13 @@ export class SocialMediaService {
       return savedUser;
   }
 
+  async searchUsers(username : string ):Promise<User[]>{
+    const observable =  this.http.get<User[]>(this.baseURL + '/search/' + username, {withCredentials: true});
+    const savedUsers = await firstValueFrom(observable);
+    return savedUsers;
+  }
+
+
   async updateUser(user : User):Promise<User> {
     const observable =  this.http.put<User>(this.baseURL + '/updateUser', user, {withCredentials: true});
     const updatedUser = await firstValueFrom(observable);
