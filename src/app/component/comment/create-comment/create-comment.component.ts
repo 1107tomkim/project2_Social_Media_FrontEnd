@@ -1,5 +1,6 @@
 import { Component, ElementRef, Host, Inject, Input, OnInit, AfterViewInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { CommentData } from 'src/app/models/comment';
 import { User } from 'src/app/models/user';
 import { SocialMediaService } from 'src/app/services/social-media.service';
@@ -18,30 +19,30 @@ export class CreateCommentComponent implements OnInit {
                private viewContainerRef: ViewContainerRef,
                private router: Router ) { 
 
-
-    let post_id = this.postParent().post.postId;
-
-    let parent_id = this.commentParent().comment.comment_id;
-
     this.comment = {
     comment_id : 0,
     userId : 0,
-    text : "~~~~~",
+    text : "",
     date : null,
-    parentId : parent_id,
-    postId : post_id,
+    parentId : 0,
+    postId : 0,
     liked : 0,
     disliked : 0,
     comments : []
      }
+
   }
 
   ngOnInit(): void {
 
+   
     let user : Promise<User> = this.commentService.getUser();
     user.then(res=> {
       this.comment.userId = res.id;
     })
+
+    
+     this.loadParentVariables();
   }
 
   ngAfterViewInit() {    
@@ -49,7 +50,18 @@ export class CreateCommentComponent implements OnInit {
     
   }
 
+  loadParentVariables() {
+    
+    this.comment.postId = this.postParent().post.postId;
+
+    this.comment.parentId = this.commentParent().comment.comment_id;
+           
+
+  }
+
   clickAdd() {
+
+   //   this.loadParentVariables();
 
       this.commentService.getUser().then(usr=>{
 
@@ -68,13 +80,20 @@ export class CreateCommentComponent implements OnInit {
        // alert(jsonString);
         let ret = this.commentService.createComment(jsonString);
 
-        this.postParent().is_creating = false;
-        this.commentParent().is_creating = false;
+
 
       });
 
 
-   
+        if (this.comment.parentId === 0) {
+          this.postParent().is_creating_comment = false;  
+        }
+         else {
+          this.commentParent().is_creating = false;
+         }
+         
+         
+        // this.postParent().getComments();
   //    let ret = this.userService.createPost(jsonString);
 
   // let ret = this.commentService.createComment(this.comment);
@@ -87,6 +106,7 @@ export class CreateCommentComponent implements OnInit {
       const _parent: PostComponent = _injector.get<PostComponent>(PostComponent);  
       return _parent;
     }
+
     commentParent():any {
       const _injector = this.viewContainerRef.parentInjector;
       const _parent: CommentComponent = _injector.get<CommentComponent>(CommentComponent);  

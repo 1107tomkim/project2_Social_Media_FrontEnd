@@ -23,6 +23,19 @@ export class SocialMediaService {
 
   constructor(private http: HttpClient) { }
 
+
+  async getUser():Promise<User>{
+      const observable =  this.http.get<User>(this.baseURL + '/api/user', {withCredentials: true});
+      const savedUser = await firstValueFrom(observable);
+      return savedUser;
+  }
+
+  async updateUser(user : User):Promise<User> {
+    const observable =  this.http.post<User>(this.baseURL + '/api/user', user, {withCredentials: true});
+    const updatedUser = await firstValueFrom(observable);
+    return updatedUser;
+  }
+
   async registerUser(user: User):Promise<User>{
     const observable = this.http.post<User>(this.baseURL + "/create", user);
     const savedUser = await firstValueFrom(observable);
@@ -42,11 +55,7 @@ export class SocialMediaService {
     return savedUser;
   }
 
-  async getUser():Promise<User>{
-      const observable =  this.http.get<User>(this.baseURL + '/api/user', {withCredentials: true});
-      const savedUser = await firstValueFrom(observable);
-      return savedUser;
-  }
+
 
   async getUserById(user_id : number):Promise<User>{
       const observable =  this.http.get<User>(this.baseURL + '/api/user/' + user_id, {withCredentials: true});
