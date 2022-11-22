@@ -44,7 +44,7 @@ body {
     top: 5%;
     left: 52%;
     transform: translate(-50%, -50%);
-    background: #2f3640;
+    background: linear-gradient(135deg, #9b59b6, #71b7e6);
 
     height: 40px;
     border-radius: 40px;
@@ -83,15 +83,16 @@ body {
 }
 
 .search-btn:hover{
-    background-color: rgb(105, 95, 122);
+    background-color: rgb(63, 61, 66);
     transition: .4s ease;
 }
 
 .create-post-box {
     position: absolute;
     top: 12%;
-    left: 36%;
+    left: 30%;
     transform: translate(880%, -30%);
+    box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
 .container{
@@ -101,10 +102,35 @@ body {
     flex-direction: column;
     text-align: center;
     padding-right: 83%;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 800;
 }
 
 .container .bi{
-    font-size: 50px;
+    font-size: 70px;
+}
+
+.container p {
+    color: rgb(233, 230, 230);
+    text-shadow: -10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container i{
+    color: rgb(233, 230, 230);
+    text-shadow: -10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.create-post-box .btn{
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    font-weight: 800;
+    color: rgb(233, 230, 230);
+}
+
+.create-post-box .btn:hover{
+    background: linear-gradient(135deg, #9b59b6, #71b7e6);
+    transition: 0.2s ease;
+}
+
+.search-box button::placeholder{
+    color: red;
 }
