@@ -61,6 +61,13 @@ export class SocialMediaService {
 
   }
 
+ getPost(post_id : number){
+    return this.http.get<Post>(this.baseURL + '/api/post/' + post_id, {withCredentials: true});
+    // const savedPosts = await firstValueFrom(observable);
+    // return savedPosts;
+
+  }
+
   getComments(post_id : number){
     return this.http.get<CommentData[]>(this.baseURL + '/api/comments/' + post_id, {withCredentials: true});
    //  const savedPosts = await firstValueFrom(observable);
@@ -80,8 +87,11 @@ export class SocialMediaService {
     return ret;
   }
 
-  async likePost(post_id : number): Promise<any> {
-    return this.http.get("http://localhost:8080/api/post/like/1", {withCredentials: true});
+  likePost(post_id : number, like : boolean) {
+    if (like)
+      return this.http.get(this.baseURL + '/api/post/like/' + post_id, {withCredentials: true});
+    else
+      return this.http.get(this.baseURL + '/api/post/dislike/' + post_id, {withCredentials: true});
   }
 
 }

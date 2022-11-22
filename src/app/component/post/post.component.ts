@@ -1,10 +1,12 @@
 import { JsonPipe } from '@angular/common';
 import { parseHostBindings } from '@angular/compiler';
 import { AfterViewInit, asNativeElements, Component, ContentChild, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { firstValueFrom, Timestamp, timestamp } from 'rxjs';
 import { CommentData } from 'src/app/models/comment';
 import { Post } from 'src/app/models/post';
 import { SocialMediaService } from 'src/app/services/social-media.service';
+import {CreateCommentComponent} from 'src/app/component/comment/create-comment/create-comment.component'
 
 @Component({
   selector: 'app-post',
@@ -15,6 +17,9 @@ export class PostComponent implements OnInit, AfterViewInit {
   
   @Input() post : Post;
   @ViewChild('post_image')imageElementRef!: ElementRef;
+  
+  @ViewChild('create_comment_component') createCommentElement! : ElementRef<CreateCommentComponent>;
+
   public comments: CommentData[] = [];
   public child_comments: CommentData[] = [];
   comment_id = 0;
@@ -43,8 +48,31 @@ export class PostComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit(): void {  
+    this.getPost();
     this.getComments();
+
+      
   }
+
+  getPost() {
+      this.postService.getPost(this.post.postId).subscribe((post)=>{
+        this.post = post;
+
+        this.postService.getUser().then(user=> {
+          if (this.post.liked_by.includes(user.id)) {
+            this.liked = true;
+          }
+          if (this.post.disliked_by.includes(user.id)) {
+            this.disliked = true;
+          }
+        });
+        
+        
+
+
+    });      
+  }
+
 
   
   getComments(){
@@ -79,7 +107,14 @@ export class PostComponent implements OnInit, AfterViewInit {
   }
 
   toggleCreate() {
+    
     this.is_creating_comment = !this.is_creating_comment;
+
+    if (this.is_creating_comment) {
+      const elmnt = this.createCommentElement.nativeElement;
+      elmnt.comment.postId = this.post.postId;
+      
+    }
   }
 
   ngAfterViewInit() {
@@ -103,16 +138,18 @@ export class PostComponent implements OnInit, AfterViewInit {
   }
 
   toggleLiked(){
-    console.log(this.liked);
     this.liked = !this.liked;
-    console.log(this.liked);
-
-    const xyz = this.postService.likePost(this.post.postId);
-    console.log(xyz);
-
+    
+    this.postService.likePost(this.post.postId, true).subscribe();
+    
+    this.getPost();
   };
 
   toggleDisliked(){
     this.disliked = !this.disliked
+
+    this.postService.likePost(this.post.postId, false).subscribe();
+
+    this.getPost();
   };
 }

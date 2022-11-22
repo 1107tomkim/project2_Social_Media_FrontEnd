@@ -43,8 +43,8 @@ export class LogInComponent implements OnInit {
       //   email: '',
       //   isLoggedIn: false};
 
-      let loggedUser: Promise<User> = this.userService.logIn(user);
-      alert("This is " + loggedUser);
+      const ret = this.userService.logIn(user);
+      alert("This is " + ret);
       this.router.navigate(['/home']);
   
   }
