@@ -151,4 +151,9 @@ export class PostComponent implements OnInit, AfterViewInit {
 
     this.getPost();
   };
+
+  public handleMissingImage(event: Event) {
+    (event.target as HTMLImageElement).style.display = 'none';
+  };
+
 }
