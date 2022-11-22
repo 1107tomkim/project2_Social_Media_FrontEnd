@@ -1,4 +1,10 @@
 body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+body {
     background: rgba(255, 0, 89, 1);
     background: -webkit-linear-gradient(45deg, rgba(255, 0, 89, 1) 0%, rgba(0, 179, 255, 1) 33%, rgba(255, 0, 89, 1) 66%, rgba(0, 179, 255, 1) 100%);
     background: -moz-linear-gradient(45deg, rgba(255, 0, 89, 1) 0%, rgba(0, 179, 255, 1) 33%, rgba(255, 0, 89, 1) 66%, rgba(0, 179, 255, 1) 100%);
@@ -10,101 +16,93 @@ body {
     -moz-animation: errorBg 5s linear infinite;
     animation: errorBg 5s linear infinite;
     height: 100vh;
-}
-
-@-webkit-keyframes errorBg {
+  }
+  
+  @-webkit-keyframes errorBg {
     0% {
         background-position: 100% 0%
     }
     100% {
         background-position: 15% 100%
     }
-}
-
-@-moz-keyframes errorBg {
+  }
+  
+  @-moz-keyframes errorBg {
     0% {
         background-position: 100% 0%
     }
     100% {
         background-position: 15% 100%
     }
-}
-
-@keyframes errorBg {
+  }
+  
+  @keyframes errorBg {
     0% {
         background-position: 100% 0%
     }
     100% {
         background-position: 15% 100%
     }
-}
-
-.search-box{
-    position: absolute;
-    top: 5%;
-    left: 52%;
-    transform: translate(-50%, -50%);
-    background: #2f3640;
-
-    height: 40px;
-    border-radius: 40px;
-    padding: 10px 40px 40px 40px ;
-    box-shadow: -10px 10px 5px rgba(0, 0, 0, 0.5);
-}
-
-.search-box:hover > .search-txt{
-    width: 400px;
-    padding: 0 6px;
-}
-
-.search-btn{
-    color: white;
-    float: right;
-    width: 40px;
-    height: 30px;
-    border-radius: 50%;
-    background: #9f9898;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
-
-.search-txt{
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 100px;
-}
-
-.search-btn:hover{
-    background-color: rgb(105, 95, 122);
-    transition: .4s ease;
-}
-
-.create-post-box {
-    position: absolute;
-    top: 12%;
-    left: 36%;
-    transform: translate(880%, -30%);
-}
+  }
 
 .container{
     width: 600px;
     margin: auto;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    padding-right: 83%;
-    font-size: 30px;
-    font-weight: 800;
+    align-items: center;
+    padding-top: 400px;
 }
 
-.container .bi{
-    font-size: 50px;
+.top p {
+    font-size: 16px;
+    width: 160px;
+    text-align: center;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    margin: 10px;
+}
+
+hr {
+    width: 100px;
+    border-radius: 5px;
+    margin: 0 15px;
+}
+
+h1{
+    font-size: 60px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+h3{ 
+    margin-bottom: 10px;
+}
+
+.progress-wrapper{
+    width: 100%;
+    background-color: #2f2b2bc7;
+    display: flex;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.progress{
+    background-color: white;
+    border-radius: 10px;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.progress span {
+    position: relative;
+    font-weight: 800;
+    width: 190px;
+    padding-left: 80px;
 }

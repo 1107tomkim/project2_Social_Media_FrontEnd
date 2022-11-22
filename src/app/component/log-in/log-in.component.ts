@@ -44,7 +44,6 @@ export class LogInComponent implements OnInit {
       //   isLoggedIn: false};
 
       const ret = this.userService.logIn(user);
-      alert("This is " + ret);
       this.router.navigate(['/home']);
   
   }

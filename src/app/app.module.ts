@@ -20,6 +20,8 @@ import { CreatePostComponent } from './component/create-post/create-post.compone
 import { SignupComponent } from './component/signup/signup.component';
 import { CreateCommentComponent } from './component/comment/create-comment/create-comment.component';
 import { UpdateProfileComponent } from './component/update-profile/update-profile.component';
+import { MessageComponent } from './component/message/message.component';
+import { MyFeedComponent } from './component/my-feed/my-feed.component';
 
 
 
@@ -38,7 +40,9 @@ import { UpdateProfileComponent } from './component/update-profile/update-profil
     CommentComponent,
     CreatePostComponent,
     CreateCommentComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    MessageComponent,
+    MyFeedComponent
   ],
   imports: [
     BrowserModule,
