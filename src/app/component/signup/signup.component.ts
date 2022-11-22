@@ -13,18 +13,25 @@ export class SignupComponent implements OnInit {
   formgrp: FormGroup;
 
   constructor(private userService: SocialMediaService, private router: Router, private formBuilder : FormBuilder)
-  {this.formgrp = this.formBuilder.group({username: '',password: ''});}
+  {this.formgrp = this.formBuilder.group({username: '',password: '', firstname: '', lastname: '', email: ''});}
  
   
   username : string = "";
   password : string = "";
+  firstname: string = "";
+  lastname: string = "";
+  email: string = "";
   savedId : number = 0;
 
   
   ngOnInit(): void {
     this.formgrp = this.formBuilder.group({
       username: '',
-      password: ''}
+      password: '',
+      firstname: '',
+      lastname: '',
+      email:  '',
+    }
     )
   }
 

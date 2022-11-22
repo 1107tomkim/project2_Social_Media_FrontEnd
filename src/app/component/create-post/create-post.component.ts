@@ -37,6 +37,8 @@ export class CreatePostComponent implements OnInit {
       firstname: '',
       lastname: '',
       email: '',
+      phone_number: '',
+      age_num: '',
       isLoggedIn: false
       }
 
@@ -62,6 +64,7 @@ export class CreatePostComponent implements OnInit {
       this.userService.getFeedComponent().ngOnInit();
       // alert("Post Created!");
       this.userService.getFeedComponent().ngOnInit();
+      this.userService.getFeedComponent().getPosts();
 
   }
 
