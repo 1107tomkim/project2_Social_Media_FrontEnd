@@ -26,6 +26,7 @@ export class PostComponent implements OnInit, AfterViewInit {
   is_creating_comment = false;
   liked = false;
   disliked = false;
+  hasImage = true;
 
 
 
@@ -53,6 +54,8 @@ export class PostComponent implements OnInit, AfterViewInit {
 
       
   }
+
+  
 
   getPost() {
       this.postService.getPost(this.post.postId).subscribe((post)=>{

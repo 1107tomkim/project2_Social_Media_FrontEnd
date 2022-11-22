@@ -80,6 +80,9 @@ export class CreateCommentComponent implements OnInit {
        // alert(jsonString);
         let ret = this.commentService.createComment(jsonString);
 
+      this.commentService.getFeedComponent().ngOnInit();
+      // alert("commented!");
+      // this.commentService.getFeedComponent().ngOnInit();
 
 
       });

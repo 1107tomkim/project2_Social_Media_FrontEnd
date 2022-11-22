@@ -12,12 +12,12 @@ export class FeedComponent implements OnInit {
   posts: Post[] = [];
  
 
-  constructor(private postService: SocialMediaService) { }
+  constructor(private postService: SocialMediaService) { postService.setFeedComponent(this);}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getPosts();
   }
-  getPosts(){
+  public getPosts(){
     this.postService.getPosts().subscribe((posts)=>{
       this.posts = posts;
     });

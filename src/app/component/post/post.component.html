@@ -3,7 +3,7 @@
         <h1 class="username">@{{post.username}}</h1>
 
         <div class="">
-            <img #post_image src="">
+            <img *ngIf="hasImage" #post_image src="">
             <h3 class="mb-0">{{post.postText}}</h3>
 
             <p class="spacer-line">

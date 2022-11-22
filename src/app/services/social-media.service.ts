@@ -12,6 +12,16 @@ import { CommentData } from '../models/comment';
 })
 export class SocialMediaService {
 
+  private feed! : FeedComponent;
+
+  getFeedComponent(){
+    return this.feed;
+  }
+
+  setFeedComponent(feed: FeedComponent){
+    this.feed = feed;
+  }
+
   baseURL: string = "http://localhost:8080";
   user: User = {id:0, 
         username:'', 
@@ -31,7 +41,7 @@ export class SocialMediaService {
   }
 
   async updateUser(user : User):Promise<User> {
-    const observable =  this.http.post<User>(this.baseURL + '/api/user', user, {withCredentials: true});
+    const observable =  this.http.put<User>(this.baseURL + '/api/user', user, {withCredentials: true});
     const updatedUser = await firstValueFrom(observable);
     return updatedUser;
   }
@@ -67,11 +77,15 @@ export class SocialMediaService {
     return this.http.get<Post[]>(this.baseURL + '/api/posts', {withCredentials: true});
     // const savedPosts = await firstValueFrom(observable);
     // return savedPosts;
-
   }
 
- getPost(post_id : number){
-    return this.http.get<Post>(this.baseURL + '/api/post/' + post_id, {withCredentials: true});
+  getUserPost(post_id : number){
+     return this.http.get<Post>(this.baseURL + '/api/post/' + post_id, {withCredentials: true});
+
+  }  
+  
+   getPost(post_id : number){
+      return this.http.get<Post>(this.baseURL + '/api/post/' + post_id, {withCredentials: true});
     // const savedPosts = await firstValueFrom(observable);
     // return savedPosts;
 

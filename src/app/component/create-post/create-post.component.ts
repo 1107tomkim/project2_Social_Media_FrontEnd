@@ -59,6 +59,9 @@ export class CreatePostComponent implements OnInit {
 
       let jsonString : string = JSON.stringify(newPost);
       let ret = this.userService.createPost(jsonString);
+      this.userService.getFeedComponent().ngOnInit();
+      // alert("Post Created!");
+      this.userService.getFeedComponent().ngOnInit();
 
   }
 

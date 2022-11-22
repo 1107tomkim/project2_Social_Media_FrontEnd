@@ -6,12 +6,10 @@
 .children {
     color: pink;
     position: relative;
-    left:3%;
 }
 .children::before {
     font-weight: bold;
     color: navy;
-    content: "---> ";
 }
 
 
@@ -29,4 +27,13 @@
 body{
     padding: 10px 10px 10px 10px;
     margin: 30;
+    width: 500px;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    background: linear-gradient(135deg, #9b59b6, #71b7e6);
+    border-color: #71b7e6;
+    border-width: 3px;
+    border-style: solid;
+    
 }
