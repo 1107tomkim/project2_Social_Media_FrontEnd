@@ -3,7 +3,8 @@
         <h1 class="username">@{{post.username}}</h1>
 
         <div class="">
-            <img *ngIf="hasImage" #post_image src="">
+            <img *ngIf="hasImage" #post_image src="" class="image" (error)="handleMissingImage($event)"
+            >
             <h3 class="mb-0">{{post.postText}}</h3>
 
             <p class="spacer-line">
@@ -15,7 +16,7 @@
         </div>
 
 <div class="cc">
-    <button class="comment-create" *ngIf="!is_creating_comment" (click)="toggleCreate()"><i class="bi bi-chat-dots"></i></button>  
+    <button class="comment-create" *ngIf="!is_creating_comment" (click)="toggleCreate()" style = "font-size: 50px;"><i class="bi bi-chat-dots"></i></button>
 
     <div *ngIf="is_creating_comment">
         <app-create-comment #create_comment_component></app-create-comment>
@@ -24,12 +25,13 @@
 </div>
 
 {{post.liked_by}}
-<button class="like" *ngIf="!liked; else likedBlock" (click)="toggleLiked()"><i class="bi bi-hand-thumbs-up"></i></button>
-<ng-template #likedBlock><i class="bi bi-hand-thumbs-up-fill"></i></ng-template>
+<i class="like" *ngIf="!liked; else likedBlock" (click)="toggleLiked()" style = "font-size: 40px;" class="bi bi-hand-thumbs-up"></i>
+<ng-template #likedBlock><i class="bi bi-hand-thumbs-up-fill" style = "font-size: 40px; color:darkblue;"></i></ng-template>
 
 
-<button class="dislike" *ngIf="!disliked;  else dislikedBlock" (click)="toggleDisliked()"><i class="bi bi-hand-thumbs-down"></i></button>
-<ng-template #dislikedBlock><i class="bi bi-hand-thumbs-down-fill"></i></ng-template>
+<i class="dislike" *ngIf="!disliked;  else dislikedBlock" (click)="toggleDisliked()" style = "font-size: 40px;" class= "bi bi-hand-thumbs-down"></i>
+<ng-template #dislikedBlock><i class="bi bi-hand-thumbs-down-fill" style = "font-size: 40px; color: red;"></i></ng-template>
+
   
 
 

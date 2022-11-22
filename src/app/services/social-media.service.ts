@@ -29,19 +29,21 @@ export class SocialMediaService {
         firstname: '',
         lastname: '',
         email: '',
+        phone_number: '',
+        age_num: '',
         isLoggedIn: false};
 
   constructor(private http: HttpClient) { }
 
 
   async getUser():Promise<User>{
-      const observable =  this.http.get<User>(this.baseURL + '/api/user', {withCredentials: true});
+      const observable =  this.http.get<User>(this.baseURL + '/user', {withCredentials: true});
       const savedUser = await firstValueFrom(observable);
       return savedUser;
   }
 
   async updateUser(user : User):Promise<User> {
-    const observable =  this.http.put<User>(this.baseURL + '/api/user', user, {withCredentials: true});
+    const observable =  this.http.put<User>(this.baseURL + '/updateUser', user, {withCredentials: true});
     const updatedUser = await firstValueFrom(observable);
     return updatedUser;
   }
@@ -60,7 +62,7 @@ export class SocialMediaService {
   }
 
   async logOut(user: User):Promise<User>{
-    const observable = this.http.get<User>(this.baseURL + "/api/logout", {withCredentials: true});
+    const observable = this.http.get<User>(this.baseURL + "/logout", {withCredentials: true});
     const savedUser = await firstValueFrom(observable);
     return savedUser;
   }
@@ -68,53 +70,53 @@ export class SocialMediaService {
 
 
   async getUserById(user_id : number):Promise<User>{
-      const observable =  this.http.get<User>(this.baseURL + '/api/user/' + user_id, {withCredentials: true});
+      const observable =  this.http.get<User>(this.baseURL + '/user/' + user_id, {withCredentials: true});
       const savedUser = await firstValueFrom(observable);
       return savedUser;
   }
 
  getPosts(){
-    return this.http.get<Post[]>(this.baseURL + '/api/posts', {withCredentials: true});
+    return this.http.get<Post[]>(this.baseURL + '/posts', {withCredentials: true});
     // const savedPosts = await firstValueFrom(observable);
     // return savedPosts;
   }
 
   getUserPost(post_id : number){
-     return this.http.get<Post>(this.baseURL + '/api/post/' + post_id, {withCredentials: true});
+     return this.http.get<Post>(this.baseURL + '/post/' + post_id, {withCredentials: true});
 
   }  
   
    getPost(post_id : number){
-      return this.http.get<Post>(this.baseURL + '/api/post/' + post_id, {withCredentials: true});
+      return this.http.get<Post>(this.baseURL + '/post/' + post_id, {withCredentials: true});
     // const savedPosts = await firstValueFrom(observable);
     // return savedPosts;
 
   }
 
   getComments(post_id : number){
-    return this.http.get<CommentData[]>(this.baseURL + '/api/comments/' + post_id, {withCredentials: true});
+    return this.http.get<CommentData[]>(this.baseURL + '/comments/' + post_id, {withCredentials: true});
    //  const savedPosts = await firstValueFrom(observable);
    //  return savedPosts;
 
   }
 
   async createPost(post : any): Promise<any> {
-    const observable =  this.http.post(this.baseURL + '/api/post', post, {withCredentials: true});
+    const observable =  this.http.post(this.baseURL + '/post', post, {withCredentials: true});
     const ret = await firstValueFrom(observable);
     return ret;
   }
 
   async createComment(comment : any): Promise<any> {
-    const observable =  this.http.post(this.baseURL + '/api/comment', comment, {withCredentials: true});
+    const observable =  this.http.post(this.baseURL + '/comment', comment, {withCredentials: true});
     const ret = await firstValueFrom(observable);
     return ret;
   }
 
   likePost(post_id : number, like : boolean) {
     if (like)
-      return this.http.get(this.baseURL + '/api/post/like/' + post_id, {withCredentials: true});
+      return this.http.get(this.baseURL + '/post/like/' + post_id, {withCredentials: true});
     else
-      return this.http.get(this.baseURL + '/api/post/dislike/' + post_id, {withCredentials: true});
+      return this.http.get(this.baseURL + '/post/dislike/' + post_id, {withCredentials: true});
   }
 
 }

@@ -28,14 +28,16 @@ body {
 
 .comment-create{
     color: white;
-    width: auto;
+    width: 40px;
     height: 30px;
     border-radius: 50%;
-    background: #2f3640;
+    background: transparent;
     display: flex; 
     justify-content: center;
     align-items: center;
+    border-color: transparent;
 }
+
 
 .cc{
     padding-bottom: 5px;
