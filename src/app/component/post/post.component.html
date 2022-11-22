@@ -3,6 +3,7 @@
         <h1 class="username">@{{post.username}}</h1>
 
         <div class="">
+
             <img *ngIf="hasImage" #post_image src="" class="image" (error)="handleMissingImage($event)">
             <h3 class="mb-0">{{post.postText}}</h3>
 
