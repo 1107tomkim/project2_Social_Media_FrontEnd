@@ -47,7 +47,7 @@ export class PostComponent implements OnInit, AfterViewInit {
     
    }
 
-  ngOnInit(): void {  
+  public ngOnInit(): void {  
     this.getPost();
     this.getComments();
 
@@ -75,7 +75,7 @@ export class PostComponent implements OnInit, AfterViewInit {
 
 
   
-  getComments(){
+ public getComments(){
     this.postService.getComments(this.post.postId).subscribe((comments)=>{
       this.setComments(comments);
     });    
@@ -110,11 +110,7 @@ export class PostComponent implements OnInit, AfterViewInit {
     
     this.is_creating_comment = !this.is_creating_comment;
 
-    if (this.is_creating_comment) {
-      const elmnt = this.createCommentElement.nativeElement;
-      elmnt.comment.postId = this.post.postId;
-      
-    }
+
   }
 
   ngAfterViewInit() {
