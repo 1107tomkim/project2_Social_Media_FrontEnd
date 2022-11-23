@@ -20,10 +20,18 @@ export class HomepageComponent implements OnInit {
   }
 
   searchButton() {
-    let search_string : string = 'rob';
+    const search_box = document.getElementById('search_txt') as HTMLInputElement;
+    let search_string : string = search_box.value;
+    if (search_string.length === 0) {
+      return;
+    }
     
     this.userService.searchUsers(search_string).then(users=> {
       alert(users);
+      for (let u of users) {
+        alert(u.username);
+      }
+      
     });
 
 
