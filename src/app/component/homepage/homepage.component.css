@@ -111,7 +111,7 @@ body {
 }
 
 .container p {
-    color: rgb(233, 230, 230);
+    color: #23232e;
     text-shadow: -10px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -127,10 +127,11 @@ body {
 }
 
 .create-post-box .btn:hover{
-    background: linear-gradient(135deg, #9b59b6, #71b7e6);
+    background: linear-gradient(135deg,  #4ca5e1, #8b2eb0);
     transition: 0.2s ease;
 }
 
-.search-box button::placeholder{
-    color: red;
+.search-txt::placeholder{
+    color:white;
+    font-weight: 600;
 }
