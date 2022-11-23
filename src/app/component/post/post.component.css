@@ -5,7 +5,7 @@ body {
 
 
 .username {
-    color: #b6b6b6;
+    color: white;
     text-shadow: 3px 3px rgb(33, 4, 46);
     font-family: 'Courier New', Courier, monospace;
     font-style: oblique;
@@ -40,8 +40,13 @@ body {
 }
 
 
-.cc{
+.comment-create{
     padding-bottom: 5px;
     padding-left: 3px;
+}
+
+.bigbox {
+    display: flex;
+    justify-content: left;
 }
 
