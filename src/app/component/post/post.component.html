@@ -15,23 +15,22 @@
             </p>
         </div>
 
-<div class="cc">
-    <button class="comment-create" *ngIf="!is_creating_comment" (click)="toggleCreate()" style = "font-size: 50px;"><i class="bi bi-chat-dots"></i></button>
+        <div class="bigbox">
+            <button class="comment-create" *ngIf="!is_creating_comment" (click)="toggleCreate()" style = "font-size: 50px;">&nbsp;&nbsp;<i class="bi bi-chat-dots"></i></button>
 
-    <div *ngIf="is_creating_comment">
-        <app-create-comment #create_comment_component></app-create-comment>
-        <button (click)="toggleCreate()">X</button>    
-    </div>
-</div>
+            <div *ngIf="is_creating_comment">
+                <app-create-comment #create_comment_component></app-create-comment>
+                <button (click)="toggleCreate()">X</button>    
+            </div>
 
-{{liked_counter}} 
-<i class="like" *ngIf="!liked; else likedBlock" (click)="toggleLiked()" style = "font-size: 40px;" class="bi bi-hand-thumbs-up"></i>
-<ng-template #likedBlock><i class="bi bi-hand-thumbs-up-fill" style = "font-size: 40px; color:darkblue;"></i></ng-template>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="like" *ngIf="!liked; else likedBlock" (click)="toggleLiked()" style = "font-size: 40px;" class="bi bi-hand-thumbs-up"></i>
+            <ng-template #likedBlock><i class="bi bi-hand-thumbs-up-fill" style = "font-size: 40px; color:darkblue;"></i></ng-template>
+            &nbsp;&nbsp;{{liked_counter}} 
 
-{{disliked_counter}}
-<i class="dislike" *ngIf="!disliked;  else dislikedBlock" (click)="toggleDisliked()" style = "font-size: 40px;" class= "bi bi-hand-thumbs-down"></i>
-<ng-template #dislikedBlock><i class="bi bi-hand-thumbs-down-fill" style = "font-size: 40px; color: red;"></i></ng-template>
-
+            &nbsp;&nbsp;&nbsp;<i class="dislike" *ngIf="!disliked;  else dislikedBlock" (click)="toggleDisliked()" style = "font-size: 40px;" class= "bi bi-hand-thumbs-down"></i>
+            <ng-template #dislikedBlock><i class="bi bi-hand-thumbs-down-fill" style = "font-size: 40px; color: red;"></i></ng-template>
+            &nbsp;&nbsp;{{disliked_counter}}
+        </div> 
   
 
 
