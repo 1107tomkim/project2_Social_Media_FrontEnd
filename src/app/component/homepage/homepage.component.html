@@ -1,9 +1,10 @@
 <body>
     
     <div class="search-box">
-        <input class="search-txt" type="text" placeholder="Search for...">
-        <button class="search-btn" href="#"><i class="bi bi-search"></i></button>
-    </div>
+        <input class="search-txt" type="text" id="search_txt" placeholder="Search for...">
+        <button class="search-btn" (click)="searchButton()" data-toggle="modal" data-target="#viewProfileModal" ><i class="bi bi-search"></i></button>
+        
+    </div>  
     
     <div class="create-post-box">
         <button type="button" class="btn btn-lg shadow" data-toggle="modal" data-target="#createPostModal">
@@ -62,5 +63,37 @@
             </div>
         </div>
     </div>
+
+
+<!-- modal for create post-->
+<div class="modal fade" id="viewProfileModal" tabindex="-1" role="dialog" aria-labelledby="viewProfileModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewProfileModalLabel">Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <b>Username: </b>{{profile.username}}<br>
+                <b>First Name: </b>{{profile.firstname}}<br>
+                <b>Last Name: </b>{{profile.lastname}}<br>
+                <b>Email: </b>{{profile.email}}<br>
+                <b>Phone No.: </b>{{profile.phone_number}}<br>
+                <b>Age: </b>{{profile.age_num}}<br>
+            </div>
+            <div class="modal-footer">
+
+                <!--    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 </body>
