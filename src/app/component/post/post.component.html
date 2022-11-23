@@ -24,11 +24,11 @@
     </div>
 </div>
 
-{{post.liked_by}}
+{{liked_counter}} 
 <i class="like" *ngIf="!liked; else likedBlock" (click)="toggleLiked()" style = "font-size: 40px;" class="bi bi-hand-thumbs-up"></i>
 <ng-template #likedBlock><i class="bi bi-hand-thumbs-up-fill" style = "font-size: 40px; color:darkblue;"></i></ng-template>
 
-
+{{disliked_counter}}
 <i class="dislike" *ngIf="!disliked;  else dislikedBlock" (click)="toggleDisliked()" style = "font-size: 40px;" class= "bi bi-hand-thumbs-down"></i>
 <ng-template #dislikedBlock><i class="bi bi-hand-thumbs-down-fill" style = "font-size: 40px; color: red;"></i></ng-template>
 

@@ -9,8 +9,8 @@ body {
     height: 80%;
     overflow-y: scroll;
     border-radius: 20px;
-    box-shadow: -30px 30px 20px rgba(0, 0, 0, 0.7);
-
+    box-shadow: -30px 30px 20px rgba(0, 0, 0, 0.4);
+    background: #23232e;
 }
 
 body::-webkit-scrollbar{

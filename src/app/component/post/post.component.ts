@@ -27,6 +27,8 @@ export class PostComponent implements OnInit, AfterViewInit {
   liked = false;
   disliked = false;
   hasImage = true;
+  disliked_counter = 0;
+  liked_counter = 0;
 
 
 
@@ -59,6 +61,9 @@ export class PostComponent implements OnInit, AfterViewInit {
 
   getPost() {
       this.postService.getPost(this.post.postId).subscribe((post)=>{
+        this.liked_counter = post.liked_by.length;
+        this.disliked_counter = post.disliked_by.length;
+
         this.post = post;
 
         this.postService.getUser().then(user=> {
@@ -69,8 +74,7 @@ export class PostComponent implements OnInit, AfterViewInit {
             this.disliked = true;
           }
         });
-        
-        
+  
 
 
     });      
@@ -137,19 +141,25 @@ export class PostComponent implements OnInit, AfterViewInit {
   }
 
   toggleLiked(){
+    
     this.liked = !this.liked;
     
     this.postService.likePost(this.post.postId, true).subscribe();
     
-    this.getPost();
-  };
 
+    this.liked_counter++;
+     
+  };
+  
   toggleDisliked(){
+
     this.disliked = !this.disliked
 
     this.postService.likePost(this.post.postId, false).subscribe();
 
-    this.getPost();
+
+    this.disliked_counter++;
+
   };
 
   public handleMissingImage(event: Event) {

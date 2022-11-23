@@ -36,6 +36,8 @@ export class HomepageComponent implements OnInit {
 
   }
 
+
+
   searchButton() {
 
     const search_box = document.getElementById('search_txt') as HTMLInputElement;
@@ -71,5 +73,7 @@ export class HomepageComponent implements OnInit {
 
 
   }
+
+
 
 }
